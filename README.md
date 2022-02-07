@@ -1,6 +1,6 @@
 # data-structure
 
-Write  a c++ program to implement singly linked list.
+1.Write  a c++ program to implement singly linked list.
 
 #include<iostream><br>
 #include<cstdlib><br>
@@ -526,6 +526,8 @@ void single_llist::display() <br>
 } <br>
 } <br>
 
+ output:
+ 
 ![image](https://user-images.githubusercontent.com/98145574/152737321-c351271f-7d25-49af-b245-31544cfbc85e.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152737471-ad805d2a-1e72-4790-b824-abf6f4faca30.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152737723-e1cd1ebf-24e6-44f2-abf9-73871b9dd58b.png)<br>
