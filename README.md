@@ -428,6 +428,7 @@ void single_llist::update_pos() <br>
  } <br>
  } <br>
 } <br>
+ 
 void single_llist::sort() <br>
 { <br>
  struct node *ptr, *s; <br>
@@ -537,5 +538,43 @@ void single_llist::display() <br>
 ![image](https://user-images.githubusercontent.com/98145574/152738065-21565d78-983c-4823-8aaa-48a6c0508344.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152738709-35628121-5ad4-41c9-8bcd-f347990743eb.png)<br>
 
+ 2.write a c++ program to implement single linked list.<br>
+ 
+ #include <iostream><br>
+#include <cstdlib><br>
+using namespace std;<br>
+struct Node {<br>
+   int data;<br>
+   struct Node *next;<br>
+};<br>
+struct Node* head = NULL;<br>
+void insert(int new_data) {<br>
+   struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));<br>
+   new_node->data = new_data;<br>
+   new_node->next = head;<br>
+   head = new_node;<br>
+   }<br>
+void display() {<br>
+   struct Node* ptr;<br>
+   ptr = head;<br>
+   while (ptr != NULL) {<br>
+      cout<< ptr->data <<" ";<br>
+      ptr = ptr->next;<br>
+   }<br>
+}<br>
+int main() <br>
+{<br>
+   insert(3);<br>
+   insert(1);<br>
+   insert(7);<br>
+   insert(2);<br>
+   insert(9);<br>
+    cout<<"The linked list is: ";<br>
+   display();<br>
+   return 0;<br>
+}<br>
+ output:<br>
+ ![image](https://user-images.githubusercontent.com/98145574/152923023-63035939-2cf1-4a61-abaf-d8da71ce1997.png)<br><br>
 
+ 
 
