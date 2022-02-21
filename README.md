@@ -704,4 +704,86 @@ cout<<endl;<br>
  ![image](https://user-images.githubusercontent.com/98145574/152937715-49d777ba-2249-4672-85b6-8b0531365dca.png)<br>
  ![image](https://user-images.githubusercontent.com/98145574/152937820-d823edac-2e91-4755-93c4-19bdbcd79474.png)<br>
 
+**3.write a c++ program to split the given linked list in such way that the given element e shuld be the first node of second list.**<br><br>
+#include<iostream><br>
+using namespace std;<br>
+struct Node{<br>
+	int value;<br>
+	struct Node *next;<br>
+};<br>
+ struct Node* head=NULL;<br>
+ struct Node* sHead=NULL;<br>
+ struct Node* temp=NULL;<br>
+ void insert(int new_data){<br>
+ 	struct Node* new_node=new Node();<br>
+ 	new_node->value=new_data;<br>
+ 	new_node->next=head;<br>
+ 	head=new_node;<br>
+ }<br>
+ int n;<br>
+ int e;<br>
+ int splitIndex;<br>
+ int main(){<br>
+ 	int i;<br>
+ 	cout<<"enter number of elements you want in the list\t";<br>
+ 	cin>>n;<br>
+ 	cout<<"Enter elements:"<<endl;<br>
+ 	for(i=0;i<n;i++){<br>
+ 		cin>>e;<br>
+ 		insert(e);<br>
+	 }<br>
+	 cout<<"\nList of elements : "<<endl;<br>
+	 Node *t;<br>
+	 t=head;<br>
+	 while(t!=NULL){<br>
+	 cout<<t->value<<"\t";<br>
+	 t=t->next;<br>
+	 
+ }<br>
+ cout<<"\n\nEnter the position you want to split";<br>
+ cin>>splitIndex;<br>
+ while(splitIndex<0||splitIndex>n-1){<br>
+ 	cout<<"Invalied position.Try again."<<endl;<br>
+ 	cin>>splitIndex;<br>
+ }<br>
+ temp=head;<br>
+ for(i=0;i<=splitIndex;i++){<br>
+	if(i==splitIndex-1){<br>
+ 		Node *tN;<br>
+ 		tN=temp->next;<br>
+ 		sHead=tN;<br>
+ 		temp->next=NULL;<br>
+ 		break;<br>
+ 		 }<br>
+	 temp=temp->next;<br>
+ }<br>
+ temp=head;<br>
+ if(temp==NULL){<br>
+ 	cout<<"\nFirst list is empty"<<endl;<br>
+ 	}else{<br>
+ 		cout<<"\n\nFirst list Element"<<endl;<br>
+ 		while(temp!=NULL){<br>
+ 			cout<<temp->value<<"\t";<br>
+ 			temp=temp->next;<br>
+		 }<br>
+	 }<br>
+	 temp=sHead;<br>
+	 if(temp==NULL){<br>
+	 	cout<<"\nSecond list is empty"<<endl;<br>
+	 }else{<br>
+	 	cout<<"\n\nSecond list elements "<<endl;<br>
+	 	 while(temp != NULL){<br>
+	     cout<<temp->value<<"\t";<br>
+         temp = temp->next;<br>
+
+		 }<br>
+	 }<br>
+	 return 0;<br>
+}<br><br>
+	
+	output:
+	
+	![image](https://user-images.githubusercontent.com/98145574/154900267-a3f5d21d-f5e3-4793-8640-94f05f0867b4.png)<br><br>
+
+ 
 
