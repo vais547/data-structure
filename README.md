@@ -704,7 +704,7 @@ cout<<endl;<br>
  ![image](https://user-images.githubusercontent.com/98145574/152937715-49d777ba-2249-4672-85b6-8b0531365dca.png)<br>
  ![image](https://user-images.githubusercontent.com/98145574/152937820-d823edac-2e91-4755-93c4-19bdbcd79474.png)<br>
 
-**3.write a c++ program to split the given linked list in such way that the given element e shuld be the first node of second list.**<br><br>
+**3.Write a C++ program to split the linked list into two halves such that the element ‘e’ should be the first element of second list.**<br><br>
 #include<iostream><br>
 using namespace std;<br>
 struct Node{<br>
