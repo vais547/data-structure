@@ -538,7 +538,7 @@ void single_llist::display() <br>
 ![image](https://user-images.githubusercontent.com/98145574/152738065-21565d78-983c-4823-8aaa-48a6c0508344.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152738709-35628121-5ad4-41c9-8bcd-f347990743eb.png)<br>
 
- 2.write a c++ program to implement single linked list.<br>
+** 2.write a c++ program to implement single linked list.**<br>
  
  #include <iostream><br>
 #include <cstdlib><br>
@@ -576,7 +576,7 @@ int main() <br>
  output:<br>
  ![image](https://user-images.githubusercontent.com/98145574/152923023-63035939-2cf1-4a61-abaf-d8da71ce1997.png)<br><br>
 
- 3.write a c++ program to implement insertion and deletion node in a front position.<br>
+ **3.write a c++ program to implement insertion and deletion node in a front position.**<br>
  
  #include<iostream><br>
 #include<cstdlib><br>
