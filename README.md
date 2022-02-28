@@ -782,32 +782,9 @@ struct Node{<br>
 	
 	**output:**
 	![image](https://user-images.githubusercontent.com/98145574/155927178-b66a31dd-5c84-4ddb-91f3-fbc5af23e426.png),br>
-	enter number of elements you want in the list   5
-Enter elements:
-5
-6
-2
-3
-8
+	![image](https://user-images.githubusercontent.com/98145574/155928047-229cf0f8-62db-4cfa-9678-62bb13bf5f02.png)
 
-List of elements :
-8       3       2       6       5
-
-Enter the position you want to split3
-
-
-First list Element
-8       3       2
-
-Second list elements
-6       5
---------------------------------
-	![image](https://user-images.githubusercontent.com/98145574/155927943-476b787d-a6f2-4a73-8741-12978ec03782.png)
-
-
-	![image](https://user-images.githubusercontent.com/98145574/154900267-a3f5d21d-f5e3-4793-8640-94f05f0867b4.png)<br>
-	![image](https://user-images.githubusercontent.com/98145574/154901744-10578e6c-a93d-4cd4-b6c0-a2b7ba47d7d2.png)<br><br>
-
+	
 
  
 
