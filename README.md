@@ -781,10 +781,9 @@ struct Node{<br>
       }<br><br>
 	
 	**output:**
-	![image](https://user-images.githubusercontent.com/98145574/155927178-b66a31dd-5c84-4ddb-91f3-fbc5af23e426.png),br>
-	![image](https://user-images.githubusercontent.com/98145574/155928047-229cf0f8-62db-4cfa-9678-62bb13bf5f02.png)
+	![image](https://user-images.githubusercontent.com/98145574/155928940-739ef3a9-75d2-4e68-ad33-d73504a0febc.png)<br>
+	![image](https://user-images.githubusercontent.com/98145574/155928989-fb10dd98-ee94-41eb-9274-7dfd627c5b75.png)<br>
 
-	
 
  
 
