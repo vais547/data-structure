@@ -785,6 +785,8 @@ struct Node{<br>
 	
 	![image](https://user-images.githubusercontent.com/98145574/155928940-739ef3a9-75d2-4e68-ad33-d73504a0febc.png)<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928989-fb10dd98-ee94-41eb-9274-7dfd627c5b75.png)<br>
+	![image](https://user-images.githubusercontent.com/98145574/155929623-d34df5d7-d09e-422d-bf6f-032796218e10.png)
+
 
 
  
