@@ -941,7 +941,6 @@ int n, i,arr[100];<br>
 	return 0;<br>
 }<br>
  **output:**<br>
-	
 	![image](https://user-images.githubusercontent.com/98145574/155939736-a3199d29-4192-4d69-8a17-5ba244200643.png)<br>
 
 
