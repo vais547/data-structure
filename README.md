@@ -842,6 +842,45 @@ return 0;<br>
 	![image](https://user-images.githubusercontent.com/98145574/155930324-8cbccc21-219e-47c6-98b7-2e521dab4902.png)<br><br>
 	![image](https://user-images.githubusercontent.com/98145574/155931182-a9a6fa50-ccf6-4472-9429-4a6878780587.png)<br>
 
+**5.C++ program to implement doubly linked list.**<br>
+#include <iostream><br>
+using namespace std;<br>
+struct Node {<br>
+   int data;<br>
+   struct Node *prev;<br>
+   struct Node *next;<br>
+};<br>
+struct Node* head = NULL;<br>
+void insert(int newdata) {<br>
+   struct Node* newnode = (struct Node*) malloc(sizeof(struct Node));<br>
+   newnode->data = newdata;<br>
+   newnode->prev = NULL;<br>
+   newnode->next = head;<br>
+   if(head != NULL)<br>
+   head->prev = newnode ;<br>
+   head = newnode;<br>
+}<br>
+void display() {<br>
+   struct Node* ptr;<br>
+   ptr = head;<br>
+   while(ptr != NULL) {<br>
+      cout<< ptr->data <<" ";<br>
+      ptr = ptr->next;<br>
+   }<br>
+}<br>
+int main() {<br>
+   insert(3);<br>
+   insert(1);<br>
+   insert(7);<br>
+   insert(2);<br>
+   insert(9);<br>
+   cout<<"The doubly linked list is: ";<br>
+   display();<br>
+   return 0;<br>
+}<br>
+	
+**output:**<br>
+	![image](https://user-images.githubusercontent.com/98145574/155932947-3efe5adc-9f61-4ec5-9501-ca2ca23a7f2f.png)<br><br>
 
 
 
