@@ -778,9 +778,11 @@ struct Node{<br>
 	}<br>
 	 }<br>
 	 return 0;<br>
-      }<br><br>
+      }<br>
 	
 	**output:**
+	
+	
 	![image](https://user-images.githubusercontent.com/98145574/155928940-739ef3a9-75d2-4e68-ad33-d73504a0febc.png)<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928989-fb10dd98-ee94-41eb-9274-7dfd627c5b75.png)<br>
 
