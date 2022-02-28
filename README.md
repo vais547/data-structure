@@ -840,6 +840,8 @@ return 0;<br>
 }<br>
 **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/155930324-8cbccc21-219e-47c6-98b7-2e521dab4902.png)<br><br>
+	![image](https://user-images.githubusercontent.com/98145574/155931182-a9a6fa50-ccf6-4472-9429-4a6878780587.png)<br>
+
 
 
 
