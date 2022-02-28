@@ -773,15 +773,14 @@ struct Node{<br>
 	 }else{<br>
 	 	cout<<"\n\nSecond list elements "<<endl;<br>
 	 	 while(temp != NULL){<br>
-	     cout<<temp->value<<"\t";<br>
-         temp = temp->next;<br>
-
-		 }<br>
+	        cout<<temp->value<<"\t";<br>
+                 temp = temp->next;<br>
+	}<br>
 	 }<br>
 	 return 0;<br>
-}<br><br>
+      }<br><br>
 	
-	output:
+	**output:**
 	
 	![image](https://user-images.githubusercontent.com/98145574/154900267-a3f5d21d-f5e3-4793-8640-94f05f0867b4.png)<br>
 	![image](https://user-images.githubusercontent.com/98145574/154901744-10578e6c-a93d-4cd4-b6c0-a2b7ba47d7d2.png)<br><br>
