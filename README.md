@@ -538,7 +538,7 @@ void single_llist::display() <br>
 ![image](https://user-images.githubusercontent.com/98145574/152738065-21565d78-983c-4823-8aaa-48a6c0508344.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152738709-35628121-5ad4-41c9-8bcd-f347990743eb.png)<br>
 
-** 2.write a c++ program to implement single linked list.**<br>
+**2.write a c++ program to implement single linked list.**<br>
  
  #include <iostream><br>
 #include <cstdlib><br>
@@ -783,7 +783,7 @@ struct Node{<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928940-739ef3a9-75d2-4e68-ad33-d73504a0febc.png)<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928989-fb10dd98-ee94-41eb-9274-7dfd627c5b75.png)<br>
 	
-**4.Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.	**<br>
+**4.Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n.Handle the collision using Linear Probing technique.**<br>
 #include<iostream><br>
 #include<limits.h><br>
 using namespace std;<br>
@@ -882,7 +882,7 @@ int main() {<br>
 **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/155932947-3efe5adc-9f61-4ec5-9501-ca2ca23a7f2f.png)<br><br>
 	
-**6.write a C++ program to implementing the Heap sort technique. **<br>
+**6.write a C++ program to implementing the Heap sort technique.**<br>
 #include <iostream><br>
 using namespace std;<br>
 void MaxHeapify (int a[], int i, int n)<br>
