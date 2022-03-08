@@ -943,96 +943,97 @@ int n, i,arr[100];<br>
  **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/155939736-a3199d29-4192-4d69-8a17-5ba244200643.png)<br>
 	
-
+**7.program to create minimum and maximum heap.**
 	
-#include <iostream>
-#include <conio.h>
-using namespace std;
-void max_heapify(int *a, int i, int n)
-{
-    int j, temp;
-    temp = a[i];
-    j = 2 * i;
-    while (j <= n)
-    {
-        if (j < n && a[j+1] > a[j])
-            j = j + 1;
-        if (temp > a[j])
-            break;
-        else if (temp <= a[j])
-        {
-            a[j / 2] = a[j];
-            j = 2 * j;
-        }
-    }
-    a[j/2] = temp;
-    return;
-}
-void build_maxheap(int *a,int n)
-{
-    int i;
-    for(i = n/2; i >= 1; i--)
-    {
-        max_heapify(a,i,n);
-    }
-}
+#include <iostream><br>
+#include <conio.h><br>
+using namespace std;<br>
+void max_heapify(int *a, int i, int n)<br>
+{<br>
+    int j, temp;<br>
+    temp = a[i];<br>
+    j = 2 * i;<br>
+    while (j <= n)<br>
+    {<br>
+        if (j < n && a[j+1] > a[j])<br>
+            j = j + 1;<br>
+        if (temp > a[j])<br>
+            break;<br>
+        else if (temp <= a[j])<br>
+        {<br>
+            a[j / 2] = a[j];<br>
+            j = 2 * j;<br>
+        }<br>
+    }<br>
+    a[j/2] = temp;<br>
+    return;<br>
+}<br>
+void build_maxheap(int *a,int n)<br>
+{<br>
+    int i;<br>
+    for(i = n/2; i >= 1; i--)<br>
+    {<br>
+        max_heapify(a,i,n);<br>
+    }<br>
+}<br>
 
-void min_heapify(int *a,int i,int n)
-{
-    int j, temp;
-    temp = a[i];
-    j = 2 * i;
-    while (j <= n)
-    {
-        if (j < n && a[j+1] < a[j])
-            j = j + 1;
-        if (temp < a[j])
-            break;
-        else if (temp >= a[j])
-        {
-            a[j/2] = a[j];
-            j = 2 * j;
-        }
-    }
-    a[j/2] = temp;
-    return;
-}
-void build_minheap(int *a, int n)
-{
-    int i;
-    for(i = n/2; i >= 1; i--)
-    {
-        min_heapify(a,i,n);
-    }
-}
+void min_heapify(int *a,int i,int n)<br>
+{<br>
+    int j, temp;<br>
+    temp = a[i];<br>
+    j = 2 * i;<br>
+    while (j <= n)<br>
+    {<br>
+        if (j < n && a[j+1] < a[j])<br>
+            j = j + 1;<br>
+        if (temp < a[j])<br>
+            break;<br>
+        else if (temp >= a[j])<br>
+        {<br>
+            a[j/2] = a[j];<br>
+            j = 2 * j;<br>
+        }<br>
+    }<br>
+    a[j/2] = temp;<br>
+    return;<br>
+}<br>
+void build_minheap(int *a, int n)<br>
+{<br>
+    int i;<br>
+    for(i = n/2; i >= 1; i--)<br>
+    {<br>
+        min_heapify(a,i,n);<br>
+    }<br>
+}<br>
 
-int main()
-{
-    int n, i, x;
-    cout<<"enter no of elements of array\n";
-    cin>>n;
-    int a[20];
-    for (i = 1; i <= n; i++)
-    {
-        cout<<"enter element"<<(i)<<endl;
-        cin>>a[i];
-    }
-     build_maxheap(a,n);
-    cout<<"Max Heap\n";
-    for (i = 1; i <= n; i++)
-    {
-        cout<<a[i]<<endl;
-    }
-     build_minheap(a, n);
-    cout<<"Min Heap\n";
-    for (i = 1; i <= n; i++)
-    {
-        cout<<a[i]<<endl;
-    }
-    getch();
-}
+int main()<br>
+{<br>
+    int n, i, x;<br>
+    cout<<"enter no of elements of array\n";<br>
+    cin>>n;<br>
+    int a[20];<br>
+    for (i = 1; i <= n; i++)<br>
+    {<br>
+        cout<<"enter element"<<(i)<<endl;<br>
+        cin>>a[i];<br>
+    }<br>
+     build_maxheap(a,n);<br>
+    cout<<"Max Heap\n";<br>
+    for (i = 1; i <= n; i++)<br>
+    {<br>
+        cout<<a[i]<<endl;<br>
+    }<br>
+     build_minheap(a, n);<br>
+    cout<<"Min Heap\n";<br>
+    for (i = 1; i <= n; i++)<br>
+    {<br>
+        cout<<a[i]<<endl;<br>
+    }<br>
+    getch();<br>
+}<br>
 
-	output:![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)
+	**output:**
+	![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
 
 
  
