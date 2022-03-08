@@ -1035,6 +1035,60 @@ int main()<br>
 **output:**<br>
 ![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
 
+**8.program to create a sum of subsets using backtracking.**
+#include<iostream><br>
+using namespace std;<br>
+int s[10],d,n,set[10],count=0;<br>
+void display(int);<br>
+int flag = 0;<br>
+int main()<br>
+{<br>
+int subset(int,int);<br>
+int i;<br>
+cout<<"enter the number f elements in he set :";<br>
+cin>>n;<br>
+cout<<"Enter the set of values:";<br>
+for(i=0;i<n;i++)<br>
+cin>>s[i];<br>
+cout<<"Enter the sum:";<br>
+cin>>d;<br>
+cout<<"The program output is:";<br>
+subset(0 , 0);<br>
+if(flag == 0)<br>
+cout<<"There is no solution:";<br>
+}<br>
+int subset(int sum,int i)<br>
+{<br>
+if(sum == d)<br>
+{<br>
+flag = 1;<br>
+display(count);<br>
+return 0;<br>
+}<br>
+if(sum>d || i>=n)<br>
+return 1;<br>
+else<br>
+ {<br>
+set[count]=s[i];<br>
+count++;<br>
+subset(sum+s[i],i+1);<br>
+count--;<br>
+subset(sum,i+1);<br>
+ }<br>
+}<br>
+void display(int count)<br>
+{<br>
+int i;<br>
+cout<<"\t { ";<br>
+for(i=0;i<count;i++)<br>
+cout<<"}";<br>
+}<br>
+	
+**output:**<br>
+![image](https://user-images.githubusercontent.com/98145574/157182720-7c1a4f99-18c6-4b7c-9cc7-de04fecfe927.png)<br>
+
+
+
 
  
 
