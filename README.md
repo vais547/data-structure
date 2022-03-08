@@ -1032,8 +1032,8 @@ int main()<br>
     getch();<br>
 }<br>
 
-	**output:**
-	![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
+**output:**
+![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
 
 
  
