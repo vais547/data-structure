@@ -1341,7 +1341,6 @@ Postorder Traversal:<br>
 6.Exit<br>
 Enter your Choice: 6<br>
 --------------------------------<br>
-![image](https://user-images.githubusercontent.com/98145574/159209156-b6d095c5-ba8b-453f-86d7-f01e5a613780.png)<br>
 
 
 
