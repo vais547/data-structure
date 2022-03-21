@@ -1035,7 +1035,7 @@ int main()<br>
 **output:**<br>
 ![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
 
-**8.program to create a sum of subsets using backtracking.**
+**8.program to create a sum of subsets using backtracking.**<br>
 #include<iostream><br>
 using namespace std;<br>
 int s[10],d,n,set[10],count=0;<br>
