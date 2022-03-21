@@ -1279,7 +1279,7 @@ int main() {<br>
    return 0;<br>
 }<br>
 **output:**<br>
-![image](https://user-images.githubusercontent.com/98145574/159209156-b6d095c5-ba8b-453f-86d7-f01e5a613780.png)<br>
+![image](https://user-images.githubusercontent.com/98145574/159209156-b6d095c5-ba8b-453f-86d7-f01e5a613780.png)<br><br>
 Enter value to be inserted: 9<br>
 Right-Right Rotation1.Insert Element into the tree<br>
 2.show Balanced AVL Tree<br>
