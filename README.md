@@ -1342,7 +1342,7 @@ Postorder Traversal:<br>
 Enter your Choice: 6<br>
 --------------------------------<br>
 
-10.Merge Sort using Divide and encounter method.<br>
+**10.Merge Sort using Divide and encounter method.<br>**
 #include<bits/stdc++.h><br>
 using namespace std;<br>
 void mergeofarrays(int a[],int low,int mid,int high)<br>
@@ -1406,7 +1406,7 @@ void mergeofarrays(int a[],int low,int mid,int high)<br>
             }<br>
         }<br>
 
-output:<br>	
+**output:<br>**	
   ![image](https://user-images.githubusercontent.com/98145574/162893226-a31aaac9-c413-4c0c-b348-7c472194279b.png)<br>
 
 
