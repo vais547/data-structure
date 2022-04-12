@@ -1362,7 +1362,6 @@ void mergeofarrays(int a[],int low,int mid,int high)<br>
         }<br>
         index++;<br>
       }<br>
-        
         if(i>mid)<br>
         {<br>
             while(j<=high)<br>
