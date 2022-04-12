@@ -538,173 +538,7 @@ void single_llist::display() <br>
 ![image](https://user-images.githubusercontent.com/98145574/152738065-21565d78-983c-4823-8aaa-48a6c0508344.png)<br>
 ![image](https://user-images.githubusercontent.com/98145574/152738709-35628121-5ad4-41c9-8bcd-f347990743eb.png)<br>
 
-**2.write a c++ program to implement single linked list.**<br>
- 
- #include <iostream><br>
-#include <cstdlib><br>
-using namespace std;<br>
-struct Node {<br>
-   int data;<br>
-   struct Node *next;<br>
-};<br>
-struct Node* head = NULL;<br>
-void insert(int new_data) {<br>
-   struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));<br>
-   new_node->data = new_data;<br>
-   new_node->next = head;<br>
-   head = new_node;<br>
-   }<br>
-void display() {<br>
-   struct Node* ptr;<br>
-   ptr = head;<br>
-   while (ptr != NULL) {<br>
-      cout<< ptr->data <<" ";<br>
-      ptr = ptr->next;<br>
-   }<br>
-}<br>
-int main() <br>
-{<br>
-   insert(3);<br>
-   insert(1);<br>
-   insert(7);<br>
-   insert(2);<br>
-   insert(9);<br>
-    cout<<"The linked list is: ";<br>
-   display();<br>
-   return 0;<br>
-}<br>
- output:<br>
- ![image](https://user-images.githubusercontent.com/98145574/152923023-63035939-2cf1-4a61-abaf-d8da71ce1997.png)<br><br>
-
- **3.write a c++ program to implement insertion and deletion node in a front position.**<br>
- 
- #include<iostream><br>
-#include<cstdlib><br>
-using namespace std;<br>
-struct node<br>
-{<br>
-int info;<br>
-struct node *next;<br>
-}*start;<br>
-class single_llist<br>
-{<br>
-	public:<br>
-	node* create_node(int);<br>
-	void insert_begin();<br>
-	void delete_begin();<br>
-	void display();<br>
-	single_llist()<br>
-	{<br>
-		start=NULL;<br>
-	}<br>
-	
-};<br>
-int main()<br>
-{<br>
-	int choice;<br>
-	single_llist s1,s2;<br>
-	start=NULL;<br>
-	do<br>
-	{<br>
-		cout<<"___________"<<endl;<br>
-		cout<<"operations on single linked list"<<endl;<br>
-	    cout<<"___________"<<endl;<br>
-	    cout<<"1.Insert at first"<<endl;<br>
-	    cout<<"2.Delete at first"<<endl;<br>
-	    cout<<"3.Display"<<endl;<br>
-	    cout<<"4.Exit "<<endl;<br>
-        cout<<"Enter your choice :";<br>
-        cin>>choice;<br>
-        switch(choice)<br>
-        {<br>
-           case 1:s1.insert_begin();<br>
-            s1.display();<br>
-            break;<br>
-            case 2:s2.delete_begin();<br>
-            s1.display();<br>
-            break;<br>
-            case 3:s1.display();<br>
-            break;<br>
-            case 4:exit(0);<br>
-            break;<br>
-            default:cout<<"Wrong choice...???"<<endl;<br>
-            break;<br>
-	    }<br>
-    }<br>
-while(choice !=4);<br>
-}<br>
-node *single_llist::create_node(int value)<br>
-{<br>
-	struct node *temp, *s;<br>
-    temp = new(struct node);<br>
-    if (temp == NULL)<br>
-{<br>
-cout<<"Memory not allocated"<<endl;<br>
-return 0;<br>
-}<br>
-else<br>
-{<br>
-temp->info = value;<br>
-temp->next = NULL;<br>
-return temp;<br>
-}<br>
-}<br>
-void single_llist::insert_begin()<br>
-{<br>
-int value;<br>
-cout<<"Enter the value to be inserted : ";<br>
-cin>>value;<br>
-struct node *temp, *s;<br>
-temp = create_node(value);<br>
-if (start == NULL)<br>
-{<br>
-start = temp;<br>
-start->next = NULL;<br>
-cout<< temp->info<<" is inserted at first in the empty list"<<endl;<br>
-}<br>
-else<br>
-{<br>
-s = start;<br>
-start = temp;<br>
-start->next = s;<br>
-cout<<temp->info<<" is inserted at first"<<endl;<br>
-}<br>
-}<br>
-void single_llist::delete_begin()<br>
-{<br>
-if (start == NULL){}<br>
-else<br>
-{<br>
-struct node *s, *ptr;<br>
-s = start;<br>
-start = s->next;<br>
-cout<<s->info<<" deleted from first"<<endl;<br><br>
-free(s);<br>
-}<br>
-}<br>
-void single_llist::display()<br>
-{<br>
-struct node *temp;<br><br>
-if (start == NULL)<br>
-cout<<"Linked list is empty...!!!"<<endl;<br>
-else<br>
-{<br>
-cout<<"Linked list contains : ";<br><br>
-temp = start;<br>
-while (temp != NULL)<br>
-{<br>
-cout<<temp->info<<" ";<br>
-temp = temp->next;<br>
-}<br>
-cout<<endl;<br>
-}<br>
-}<br>
- 
- 
- ![image](https://user-images.githubusercontent.com/98145574/152937715-49d777ba-2249-4672-85b6-8b0531365dca.png)<br>
- ![image](https://user-images.githubusercontent.com/98145574/152937820-d823edac-2e91-4755-93c4-19bdbcd79474.png)<br>
-
-**3.Write a C++ program to split the linked list into two halves such that the element ‘e’ should be the first element of second list.**<br><br>
+**2.Write a C++ program to split the linked list into two halves such that the element ‘e’ should be the first element of second list.**<br><br>
 #include<iostream><br>
 using namespace std;<br>
 struct Node{<br>
@@ -783,7 +617,7 @@ struct Node{<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928940-739ef3a9-75d2-4e68-ad33-d73504a0febc.png)<br>
 	![image](https://user-images.githubusercontent.com/98145574/155928989-fb10dd98-ee94-41eb-9274-7dfd627c5b75.png)<br>
 	
-**4.Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n.Handle the collision using Linear Probing technique.**<br>
+**3.Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n.Handle the collision using Linear Probing technique.**<br>
 #include<iostream><br>
 #include<limits.h><br>
 using namespace std;<br>
@@ -842,7 +676,7 @@ return 0;<br>
 	![image](https://user-images.githubusercontent.com/98145574/155930324-8cbccc21-219e-47c6-98b7-2e521dab4902.png)<br><br>
 	![image](https://user-images.githubusercontent.com/98145574/155931182-a9a6fa50-ccf6-4472-9429-4a6878780587.png)<br>
 
-**5.C++ program to implement doubly linked list.**<br>
+**4.C++ program to implement doubly linked list.**<br>
 #include <iostream><br>
 using namespace std;<br>
 struct Node {<br>
@@ -882,7 +716,7 @@ int main() {<br>
 **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/155932947-3efe5adc-9f61-4ec5-9501-ca2ca23a7f2f.png)<br><br>
 	
-**6.write a C++ program to implementing the Heap sort technique.**<br>
+**5.write a C++ program to implementing the Heap sort technique.**<br>
 #include <iostream><br>
 using namespace std;<br>
 void MaxHeapify (int a[], int i, int n)<br>
@@ -943,7 +777,7 @@ int n, i,arr[100];<br>
  **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/155939736-a3199d29-4192-4d69-8a17-5ba244200643.png)<br>
 	
-**7.program to create minimum and maximum heap.**<br>
+**6.program to create minimum and maximum heap.**<br>
 	
 #include <iostream><br>
 #include <conio.h><br>
@@ -1035,7 +869,7 @@ int main()<br>
 **output:**<br>
 ![image](https://user-images.githubusercontent.com/98145574/156986211-8144ed34-a707-41b3-b18d-2313a89c69a6.png)<br>
 
-**8.program to create a sum of subsets using backtracking.**<br>
+**7.program to create a sum of subsets using backtracking.**<br>
 #include<iostream><br>
 using namespace std;<br>
 int s[10],d,n,set[10],count=0;<br>
@@ -1087,7 +921,7 @@ cout<<"}";<br>
 **output:**<br>
 ![image](https://user-images.githubusercontent.com/98145574/157182720-7c1a4f99-18c6-4b7c-9cc7-de04fecfe927.png)<br>
 	
-**9.write a program to insertion into AVL tree and deletion from an AVL tree.**<br>
+**8.write a program to insertion into AVL tree and deletion from an AVL tree.**<br>
 #include<iostream><br>
 #include<cstdio><br>
 #include<sstream><br>
@@ -1342,7 +1176,7 @@ Postorder Traversal:<br>
 Enter your Choice: 6<br>
 --------------------------------<br>
 
-**10.Merge Sort using Divide and encounter method.<br>**
+**9.Merge Sort using Divide and encounter method.<br>**
 #include<bits/stdc++.h><br>
 using namespace std;<br>
 void mergeofarrays(int a[],int low,int mid,int high)<br>
