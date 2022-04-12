@@ -1342,8 +1342,74 @@ Postorder Traversal:<br>
 Enter your Choice: 6<br>
 --------------------------------<br>
 
-10.Merge Sort using Divide and encounter method.
-  
+10.Merge Sort using Divide and encounter method.<br>
+#include<bits/stdc++.h><br>
+using namespace std;<br>
+void mergeofarrays(int a[],int low,int mid,int high)<br>
+    {<br>
+     int i=low,j=mid+1,index=low,temp[100],k;<br>
+      while((i<=mid)&&(j<=high))<br>
+      {<br>
+        if(a[i]<a[j])<br>
+        {<br>
+        temp[index]=a[i];<br>
+        i++;<br>
+        }<br>
+        else<br>
+        {<br>
+            temp[index]=a[j];<br>
+            j++;<br>
+        }<br>
+        index++;<br>
+      }<br>
+        
+        if(i>mid)<br>
+        {<br>
+            while(j<=high)<br>
+            {<br>
+                temp[index]=a[j];<br>
+                j++;<br>
+                index++;<br>
+            }<br>
+        }<br>
+         else<br>
+        {<br>
+            while(i<=mid)<br>
+          {<br>
+            temp[index]=a[i];<br>
+            i++;<br>
+            index++;<br>
+          }<br>
+        }<br>
+        for(k=low;k<index;k++)<br>
+        {<br>
+            a[k]=temp[k];<br>
+        }<br>
+    }<br>
+        void mergesort(int a[], int low, int high)<br>
+        {<br>
+            if(low<high)<br>
+            {<br>
+                int middle=(low+high)/2;<br>
+                mergesort(a,low,middle);<br>
+                mergesort(a,middle+1,high);<br>
+                mergeofarrays(a,low,middle,high);<br>
+            }<br>
+        }<br>
+        int main()<br>
+        {<br>
+            int n=7;<br>
+            int a[100]={54,34,23,10,98,2,3};<br>
+            mergesort(a,0,6);<br>
+            for(int i=0;i<n;i++)<br>
+            {<br>
+                cout<<a[i]<<" ";<br>
+            }<br>
+        }<br>
+
+output:<br>	
+  ![image](https://user-images.githubusercontent.com/98145574/162893226-a31aaac9-c413-4c0c-b348-7c472194279b.png)<br>
+
 
  https://www.iare.ac.in/sites/default/files/DAA%20%20Notes%20by%20Dr.%20L.%20V.%20Narasimha%20Prasad_0.pdf
 
