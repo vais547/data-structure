@@ -1242,6 +1242,65 @@ void mergeofarrays(int a[],int low,int mid,int high)<br>
 
 **output:<br>**	
   ![image](https://user-images.githubusercontent.com/98145574/162893226-a31aaac9-c413-4c0c-b348-7c472194279b.png)<br>
+	
+**10.Write a program to store k keys into an array of size n at the location compute using a hash function, loc=key%n, where k<=n and  key takes values from [1 to m], m>n. Handle the collision using Linear Probing technique.**<br>
+#include<iostream><br>
+#include<limits.h><br>
+using namespace std;<br>
+void Insert(int ary[],int hFn, int Size){<br>
+    int element,pos,n=0;<br>
+cout<<"Enter key element to insert\n";<br>
+cin>>element;<br>
+pos = element%hFn;<br>
+while(ary[pos]!= INT_MIN) {<br>
+if(ary[pos]== INT_MAX)<br>
+            break;<br>
+pos = (pos+1)%hFn;<br>
+n++;<br>
+if(n==Size)<br>
+            break;<br>  
+}<br>
+if(n==Size)<br>
+        cout<<"Hash table was full of elements\nNo Place to insert this element\n\n";<br>
+else<br>
+        ary[pos] = element;<br>    
+}<br>
+void display(int ary[],int Size){<br>
+int i;<br>
+cout<<"Index\tValue\n";<br>
+for(i=0;i<Size;i++)<br>
+        cout<<i<<"\t"<<ary[i]<<"\n";<br>
+}<br>
+int main(){<br>
+int Size,hFn,i,choice;<br>
+cout<<"Enter size of hash table\n";<br>
+cin>>Size;<br>
+ hFn=Size;<br>
+int ary[Size];<br>
+for(i=0;i<Size;i++)<br>
+        ary[i]=INT_MIN;<br>
+do{<br>
+cout<<"Enter your choice\n";<br>
+cout<<" 1-> Insert\n 2-> Display\n 0-> Exit\n";<br>
+cin>>choice;<br>
+switch(choice){<br>
+case 1:<br>
+Insert(ary,hFn,Size);<br>
+break;<br>
+case 2:<br><br>
+display(ary,Size);<br>
+break;<br>
+default:<br>
+cout<<"Enter correct choice\n";<br>
+break;<br>
+}<br>
+}while(choice);<br>
+return 0;<br>
+}<br>
+
+**output:<br>**
+![image](https://user-images.githubusercontent.com/98145574/163765457-7f3a9c62-8942-4437-a9c8-ef453aea664c.png)<br>
+![image](https://user-images.githubusercontent.com/98145574/163765736-3ecaf88c-5d87-4df2-bf5c-bd1e09751e70.png)<br>
 
 
  https://www.iare.ac.in/sites/default/files/DAA%20%20Notes%20by%20Dr.%20L.%20V.%20Narasimha%20Prasad_0.pdf
