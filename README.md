@@ -1244,66 +1244,92 @@ void mergeofarrays(int a[],int low,int mid,int high)<br>
   ![image](https://user-images.githubusercontent.com/98145574/162893226-a31aaac9-c413-4c0c-b348-7c472194279b.png)<br>
 	
 **10.Write a C++ program for solving N-Queen’s problem using Backtracking.**<br>
-#include <bits/stdc++.h><br>
-#define N 4<br>
+#include<iostream><br>
 using namespace std;<br>
-void printSolution(int board[N][N])<br>
-{<br>
-	for (int i = 0; i < N; i++) {<br>
-		for (int j = 0; j < N; j++)<br>
-			cout << " " << board[i][j] << " ";<br>
-	}<br>
-}<br>
-bool isSafe(int board[N][N], int row, int col)<br>
-{<br>
-	int i, j;<br>
-	for (i = 0; i < col; i++)<br>
-		if (board[row][i])<br>
-			return false;<br>
-	for (i = row, j = col; i >= 0 && j >= 0; i--, j--)<br>
-		if (board[i][j])<br>
-			return false;<br>
-	for (i = row, j = col; j >= 0 && i < N; i++, j--)<br>
-		if (board[i][j])<br>
-			return false;<br>
-	return true;<br>
-}<br>
-bool solveNQUtil(int board[N][N], int col)<br>
-{<br>
-	if (col >= N)<br><br>
-		return true;<br>
-	for (int i = 0; i < N; i++) {<br>
-		if (isSafe(board, i, col)) {<br>
-			board[i][col] = 1;<br>
-			if (solveNQUtil(board, col + 1))<br>
-				return true;<br>
-			board[i][col] = 0;<br>
-		}<br>
-	}<br>
-	return false;<br>
-}<br>
-bool solveNQ()<br>
-{<br>
-	int board[N][N] = { { 0, 0, 0, 0 },<br>
-						{ 0, 0, 0, 0 },<br>
-						{ 0, 0, 0, 0 },<br>
-						{ 0, 0, 0, 0 } };<br>
+int grid[10][10];
 
-	if (solveNQUtil(board, 0) == false) {<br>
-		cout << "Solution does not exist";<br>
-		return false;<br>
-	}<br>
-	printSolution(board);<br>
-	return true;<br>
+void print(int n) {<br>
+    for (int i = 0;i <= n-1; i++) {<br>
+        for (int j = 0;j <= n-1; j++) {<br>
+            
+                cout <<grid[i][j]<< " ";<br>
+            
+        }<br>
+        cout<<endl;<br>
+    }<br>
+    cout<<endl;<br>
+    cout<<endl;<br>
 }<br>
+
+//function for check the position is safe or not
+//row is indicates the queen no. and col represents the possible positions
+bool isSafe(int col, int row, int n) {<br>
+  //check for same column
+    for (int i = 0; i < row; i++) {<br>
+        if (grid[i][col]) {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper left diagonal
+    for (int i = row,j = col;i >= 0 && j >= 0; i--,j--) {<br>
+        if (grid[i][j]) {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    //check for upper right diagonal
+    for (int i = row, j = col; i >= 0 && j < n; j++, i--) {<br>
+        if (grid[i][j]) {<br>
+            return false;<br>
+        }<br>
+    }<br>
+    return true;<br>
+}<br>
+
+//function to find the position for each queen
+//row is indicates the queen no. and col represents the possible positions
+bool solve (int n, int row) {<br>
+    if (n == row) {<br>
+        print(n);<br>
+        return true;<br>
+    }<br>
+    //variable res is use for possible backtracking 
+    bool res = false;<br>
+    for (int i = 0;i <=n-1;i++) {<br>
+        if (isSafe(i, row, n)) {<br>
+            grid[row][i] = 1;<br>
+            //recursive call solve(n, row+1) for next queen (row+1)
+            res = solve(n, row+1) || res;//if res ==false then backtracking will occur <br>
+            //by assigning the grid[row][i] = 0<br>
+            
+            grid[row][i] = 0;<br>
+        }<br>
+    }<br>
+    return res;<br>
+}<br>
+
 int main()<br>
 {<br>
-	solveNQ();<br>
-	return 0;<br>
+  ios_base::sync_with_stdio(false);<br>
+    cin.tie(NULL);<br>
+        int n;<br>
+        cout<<"Enter the number of queen"<<endl;<br>
+        cin >> n;<br>
+        for (int i = 0;i < n;i++) {<br>
+            for (int j = 0;j < n;j++) {<br>
+                grid[i][j] = 0;<br>
+            }<br>
+        }<br>
+        bool res = solve(n, 0);<br>
+        if(res == false) {<br>
+            cout <<" solution not found ";<br>
+			<< endl; //if there is no possible solution<br>
+        } else {<br>
+            cout << endl;<br>
+        }<br>
+  return 0;<br>
 }<br>
-**output:**<br>
-![image](https://user-images.githubusercontent.com/98145574/163771503-c075d3ff-3bc6-48f5-aba7-ebfe451027ec.png)<br>
-
+**output:**
+	![image](https://user-images.githubusercontent.com/98145574/163937813-efed0744-98b2-4c1d-9125-3d8fc4b2e39a.png)<br>
 
  https://www.iare.ac.in/sites/default/files/DAA%20%20Notes%20by%20Dr.%20L.%20V.%20Narasimha%20Prasad_0.pdf
 
