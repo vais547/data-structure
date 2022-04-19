@@ -1260,23 +1260,17 @@ void print(int n) {<br>
     cout<<endl;<br>
     cout<<endl;<br>
 }<br>
-
-//function for check the position is safe or not
-//row is indicates the queen no. and col represents the possible positions
 bool isSafe(int col, int row, int n) {<br>
-  //check for same column
     for (int i = 0; i < row; i++) {<br>
         if (grid[i][col]) {<br>
             return false;<br>
         }<br>
     }<br>
-    //check for upper left diagonal
     for (int i = row,j = col;i >= 0 && j >= 0; i--,j--) {<br>
         if (grid[i][j]) {<br>
             return false;<br>
         }<br>
     }<br>
-    //check for upper right diagonal
     for (int i = row, j = col; i >= 0 && j < n; j++, i--) {<br>
         if (grid[i][j]) {<br>
             return false;<br>
@@ -1284,29 +1278,21 @@ bool isSafe(int col, int row, int n) {<br>
     }<br>
     return true;<br>
 }<br>
-
-//function to find the position for each queen
-//row is indicates the queen no. and col represents the possible positions
 bool solve (int n, int row) {<br>
     if (n == row) {<br>
         print(n);<br>
         return true;<br>
     }<br>
-    //variable res is use for possible backtracking 
     bool res = false;<br>
     for (int i = 0;i <=n-1;i++) {<br>
         if (isSafe(i, row, n)) {<br>
             grid[row][i] = 1;<br>
-            //recursive call solve(n, row+1) for next queen (row+1)
             res = solve(n, row+1) || res;//if res ==false then backtracking will occur <br>
-            //by assigning the grid[row][i] = 0<br>
-            
             grid[row][i] = 0;<br>
         }<br>
     }<br>
     return res;<br>
 }<br>
-
 int main()<br>
 {<br>
   ios_base::sync_with_stdio(false);<br>
