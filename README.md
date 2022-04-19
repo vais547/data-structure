@@ -1314,8 +1314,72 @@ int main()<br>
         }<br>
   return 0;<br>
 }<br>
-**output:**
+**output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/163937813-efed0744-98b2-4c1d-9125-3d8fc4b2e39a.png)<br>
+11.
+#include<iostream><br>
+#include<vector><br>
+#include<queue><br>
+#include<stack><br>
+using namespace std;<br>
+void edge(vector<int>adj[],int u,int v){<br>
+  adj[u].push_back(v);<br>
+}<br>
+void bfs(int s,vector<int>adj[],bool visit[]){<br>
+  queue<int>q;<br>
+  q.push(s);<br>
+  visit[s]=true;<br>
+  while(!q.empty()){<br>
+    int u=q.front();<br>
+    cout<<u<<" ";<br>
+    q.pop();<br>
+    for(int i=0;i<adj[u].size();i++){<br>
+      if(!visit[adj[u][i]]){<br>
+        q.push(adj[u][i]);<br>
+        visit[adj[u][i]]=true;<br>
+      }<br>
+    }<br>
+  }<br>
+}<br>
+void dfs(int s,vector<int>adj[],bool visit[]){<br>
+  stack<int>stk;<br>
+  stk.push(s);<br>
+  visit[s]=true;<br>
+  while(!stk.empty()){<br>
+    int u=stk.top();<br>
+    cout<<u<<" ";<br>
+    stk.pop();<br>
+    for(int i=0;i<adj[u].size();i++){<br>
+      if(!visit[adj[u][i]]){<br>
+        stk.push(adj[u][i]);<br>
+        visit[adj[u][i]]=true;<br>
+      }<br>
+    }<br>
+  }<br>
+}<br>
+int main(){<br>
+  vector<int>adj[5];<br>
+  bool visit[5];<br>
+  for(int i=0;i<5;i++){<br>
+    visit[i]=false;<br>
+  }<br>
+  edge(adj,0,2);<br>
+  edge(adj,0,1);<br>
+  edge(adj,1,3);<br>
+  edge(adj,2,0);<br>
+  edge(adj,2,3);<br>
+  edge(adj,2,4);<br>
+  cout<<"BFS traversal is"<<"  ";<br>
+  bfs(0,adj,visit);<br>
+  cout<<endl;<br>
+  for(int i=0;i<5;i++){<br>
+    visit[i]=false;<br>
+  }<br>
+  cout<<"DFS traversal is"<<"  ";<br>
+  dfs(0,adj,visit);<br>
+}<br>
+	![image](https://user-images.githubusercontent.com/98145574/163942802-c64c81c2-ca49-4112-ab36-d46cea028473.png)<br>
+
 
  https://www.iare.ac.in/sites/default/files/DAA%20%20Notes%20by%20Dr.%20L.%20V.%20Narasimha%20Prasad_0.pdf
 
