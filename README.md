@@ -1316,7 +1316,8 @@ int main()<br>
 }<br>
 **output:**<br>
 	![image](https://user-images.githubusercontent.com/98145574/163937813-efed0744-98b2-4c1d-9125-3d8fc4b2e39a.png)<br>
-11.
+	
+**11. write  breadth first search and depth first search  for a given graph.**<br>
 #include<iostream><br>
 #include<vector><br>
 #include<queue><br>
