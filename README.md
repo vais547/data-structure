@@ -1381,114 +1381,114 @@ int main(){<br>
 }<br>
 	![image](https://user-images.githubusercontent.com/98145574/163942802-c64c81c2-ca49-4112-ab36-d46cea028473.png)<br>
 
-**12.write a program to find minimum cost spanning tree using kruskal method.**
-#include<bits/stdc++.h>
-using namespace std;
-typedef pair<int, int> iPair;
-struct Graph
-{
-	int V, E;
-	vector< pair<int, iPair> > edges;
-	Graph(int V, int E)
-	{
-		this->V = V;
-		this->E = E;
-	}
-	void addEdge(int u, int v, int w)
-	{
-		edges.push_back({w, {u, v}});
-	}
-	int kruskalMST();
-};
-struct DisjointSets
-{
-	int *parent, *rnk;
-	int n;
+**12.write a program to find minimum cost spanning tree using kruskal method.**<br>
+#include<bits/stdc++.h><br>
+using namespace std;<br>
+typedef pair<int, int> iPair;<br>
+struct Graph<br>
+{<br>
+	int V, E;<br>
+	vector< pair<int, iPair> > edges;<br>
+	Graph(int V, int E)<br>
+	{<br>
+		this->V = V;<br>
+		this->E = E;<br>
+	}<br>
+	void addEdge(int u, int v, int w)<br>
+	{<br>
+		edges.push_back({w, {u, v}});<br>
+	}<br>
+	int kruskalMST();<br>
+};<br>
+struct DisjointSets<br>
+{<br>
+	int *parent, *rnk;<br>
+	int n;<br>
 	
-	DisjointSets(int n)
-	{
-		this->n = n;
-		parent = new int[n+1];
-		rnk = new int[n+1];
-		for (int i = 0; i <= n; i++)
-		{
-			rnk[i] = 0;
-			parent[i] = i;
-		}
-	}
-	int find(int u)
-	{
-		if (u != parent[u])
-			parent[u] = find(parent[u]);
-		return parent[u];
-	}
-	void merge(int x, int y)
-	{
-		x = find(x), y = find(y);
-		if (rnk[x] > rnk[y])
-			parent[y] = x;
-		else
-			parent[x] = y;
+	DisjointSets(int n)<br>
+	{<br>
+		this->n = n;<br>
+		parent = new int[n+1];<br>
+		rnk = new int[n+1];<br>
+		for (int i = 0; i <= n; i++)<br>
+		{<br>
+			rnk[i] = 0;<br>
+			parent[i] = i;<br>
+		}<br>
+	}<br>
+	int find(int u)<br>
+	{<br>
+		if (u != parent[u])<br>
+			parent[u] = find(parent[u]);<br>
+		return parent[u];<br>
+	}<br>
+	void merge(int x, int y)<br>
+	{<br>
+		x = find(x), y = find(y);<br>
+		if (rnk[x] > rnk[y])<br>
+			parent[y] = x;<br>
+		else<br>
+			parent[x] = y;<br>
 
-		if (rnk[x] == rnk[y])
-			rnk[y]++;
-	}
-};
+		if (rnk[x] == rnk[y])<br>
+			rnk[y]++;<br>
+	}<br>
+};<br>
 
-int Graph::kruskalMST()
-{
-	int mst_wt = 0;
-	sort(edges.begin(), edges.end());
-	DisjointSets ds(V);
-	vector< pair<int, iPair> >::iterator it;
-	for (it=edges.begin(); it!=edges.end(); it++)
-	{
-		int u = it->second.first;
-		int v = it->second.second;
+int Graph::kruskalMST()<br>
+{<br>
+	int mst_wt = 0;<br>
+	sort(edges.begin(), edges.end());<br>
+	DisjointSets ds(V);<br>
+	vector< pair<int, iPair> >::iterator it;<br>
+	for (it=edges.begin(); it!=edges.end(); it++)<br>
+	{<br>
+		int u = it->second.first;<br>
+		int v = it->second.second;<br>
 
-		int set_u = ds.find(u);
-		int set_v = ds.find(v);
-		if (set_u != set_v)
-		{
+		int set_u = ds.find(u);<br>
+		int set_v = ds.find(v);<br>
+		if (set_u != set_v)<br>
+		{<br>
 	
-			cout << u << " - " << v << endl;
-			mst_wt += it->first;
-			ds.merge(set_u, set_v);
-		}
-	}
+			cout << u << " - " << v << endl;<br>
+			mst_wt += it->first;<br>
+			ds.merge(set_u, set_v);<br>
+		}<br>
+	}<br>
 
-	return mst_wt;
-}
+	return mst_wt;<br>
+}<br>
 
-int main()
-{
-	int V = 9, E = 14;
-	Graph g(V, E);
-	g.addEdge(0, 1, 4);
-	g.addEdge(0, 7, 8);
-	g.addEdge(1, 2, 8);
-	g.addEdge(1, 7, 11);
-	g.addEdge(2, 3, 7);
-	g.addEdge(2, 8, 2);
-	g.addEdge(2, 5, 4);
-	g.addEdge(3, 4, 9);
-	g.addEdge(3, 5, 14);
-	g.addEdge(4, 5, 10);
-	g.addEdge(5, 6, 2);
-	g.addEdge(6, 7, 1);
-	g.addEdge(6, 8, 6);
-	g.addEdge(7, 8, 7);
+int main()<br>
+{<br>
+	int V = 9, E = 14;<br>
+	Graph g(V, E);<br>
+	g.addEdge(0, 1, 4);<br>
+	g.addEdge(0, 7, 8);<br>
+	g.addEdge(1, 2, 8);<br>
+	g.addEdge(1, 7, 11);<br>
+	g.addEdge(2, 3, 7);<br>
+	g.addEdge(2, 8, 2);<br>
+	g.addEdge(2, 5, 4);<br>
+	g.addEdge(3, 4, 9);<br>
+	g.addEdge(3, 5, 14);<br>
+	g.addEdge(4, 5, 10);<br>
+	g.addEdge(5, 6, 2);<br>
+	g.addEdge(6, 7, 1);<br>
+	g.addEdge(6, 8, 6);<br>
+	g.addEdge(7, 8, 7);<br>
 
-	cout << "Edges of MST are \n";
-	int mst_wt = g.kruskalMST();
+	cout << "Edges of MST are \n";<br>
+	int mst_wt = g.kruskalMST();<br>
 
-	cout << "\nWeight of MST is " << mst_wt;
+	cout << "\nWeight of MST is " << mst_wt;<br>
 
-	return 0;
-}
+	return 0;<br>
+}<br>
 
-**output:**
-![image](https://user-images.githubusercontent.com/98145574/165037481-1a0cd86f-12a5-49bf-91f8-5584460c53c7.png)
+**output:**<br>
+![image](https://user-images.githubusercontent.com/98145574/165037481-1a0cd86f-12a5-49bf-91f8-5584460c53c7.png)<br>
 
 13.
 	#include<iostream>
