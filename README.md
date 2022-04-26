@@ -1490,7 +1490,7 @@ int main()<br>
 **output:**<br>
 ![image](https://user-images.githubusercontent.com/98145574/165037481-1a0cd86f-12a5-49bf-91f8-5584460c53c7.png)<br>
 
-13.
+13.binary tree
 	#include<iostream>
 #include<cstdio>
 #include<cstdlib>
@@ -1846,7 +1846,408 @@ return 0;
 }
 
 output:
-![image](https://user-images.githubusercontent.com/98145574/165041371-adec27ab-c4f3-4837-a8e9-1477b8066e3c.png)
+![image](https://user-images.githubusercontent.com/98145574/165239442-b1f1dfb7-9b50-4c2b-bbae-f8934bc1ff9d.png)<br>
+![image](https://user-images.githubusercontent.com/98145574/165239563-f9ca2bbc-d3ab-40c3-9272-d68d8753baa6.png)<br>
+![image](https://user-images.githubusercontent.com/98145574/165239677-43869015-faeb-47a0-863e-dc774f8954c3.png)<br>
+![image](https://user-images.githubusercontent.com/98145574/165239756-88e001d3-617c-4fec-81f2-5edb0ff1442d.png)<br>
+
+14.min heap
+#include <iostream><br>
+#include <conio.h><br>
+using namespace std;<br>
+void min_heap(int *a, int m, int n){<br>
+   int j, t;<br>
+   t= a[m];<br>
+   j = 2 * m;<br>
+   while (j <= n) {<br>
+      if (j < n && a[j+1] < a[j])<br>
+         j = j + 1;<br>
+      if (t < a[j])<br>
+         break;<br>
+      else if (t >= a[j]) {<br>
+         a[j/2] = a[j];<br>
+         j = 2 * j;<br>
+      }<br>
+   }<br>
+   a[j/2] = t;<br>
+   return;<br>
+}<br>
+void build_minheap(int *a, int n) {<br>
+   int k;<br>
+   for(k = n/2; k >= 1; k--) {<br>
+      min_heap(a,k,n);<br>
+   }<br>
+}<br>
+int main() {<br>
+   int n, i;<br>
+   cout<<"enter no of elements of array\n";<br>
+   cin>>n;<br>
+   int a[30];<br>
+   for (i = 1; i <= n; i++) {<br>
+      cout<<"enter element"<<" "<<(i)<<endl;<br>
+      cin>>a[i];<br>
+   }<br>
+   build_minheap(a, n);<br>
+   cout<<"Min Heap\n";<br>
+   for (i = 1; i <= n; i++) {<br>
+      cout<<a[i]<<endl;<br>
+   }<br>
+   getch();<br>
+}<br>
+
+**output:**<br>
+	![image](https://user-images.githubusercontent.com/98145574/165245015-4eb4bff1-2a68-4f0d-b982-25ac73f5792d.png)<br>
+	
+15.	doubly linked list
+	#include<stdio.h>
+	#include<stdlib.h>
+	struct node
+	{
+	struct node *prev;
+	struct node *next;
+	int data;
+	};
+	struct node *head;
+	void insertion_beginning();
+	void insertion_last();
+	void insertion_specified();
+	void deletion_beginning();
+	void deletion_last();
+	void deletion_specified();
+	void display();
+	void search();
+	int main ()
+	{
+	int choice =0;
+	while(choice != 9)
+	{
+	printf("\nChoose one option from the following list ...\n");
+	printf("\n1.Insert in begining\n2.Insert at last\n3.Insert at any random location\n4.Delete from Beginning\n5.Delete from last\n6.Delete the node after the given data\n7.Search\n8.Show\n9.Exit\n");
+	printf("\nEnter your choice?\n");
+	scanf("\n%d",&choice);
+	switch(choice)
+	{
+	case 1:
+	insertion_beginning();
+	break;
+	case 2:
+	insertion_last();
+	break;
+	case 3:
+	insertion_specified();
+	break;
+	case 4:
+	deletion_beginning();
+	break;
+	case 5:
+	deletion_last();
+	break;
+	case 6:
+	deletion_specified();
+	break;
+	case 7:
+	search();
+	break;
+	case 8:
+	display();
+	break;
+	case 9:
+	exit(0);
+	break;
+	default:
+	printf("Please enter valid choice..");
+	}
+	}
+	}
+	void insertion_beginning()
+	{
+	struct node *ptr;
+	int item;
+	ptr = (struct node *)malloc(sizeof(struct node));
+	if(ptr == NULL)
+	{
+	printf("\nOVERFLOW");
+	}
+	else
+	{
+	printf("\nEnter Item value");
+	scanf("%d",&item);
+	
+	if(head==NULL)
+	{
+	ptr->next = NULL;
+	ptr->prev=NULL;
+	ptr->data=item;
+	head=ptr;
+	}
+	else
+	{
+	ptr->data=item;
+	ptr->prev=NULL;
+	ptr->next = head;
+	head->prev=ptr;
+	head=ptr;
+	}
+	printf("\nNode inserted\n");
+	}
+	
+	}
+	void insertion_last()
+	{
+	struct node *ptr,*temp;
+	int item;
+	ptr = (struct node *) malloc(sizeof(struct node));
+	if(ptr == NULL)
+	{
+	printf("\nOVERFLOW");
+	}
+	else
+	{
+	printf("\nEnter value");
+	scanf("%d",&item);
+	ptr->data=item;
+	if(head == NULL)
+	{
+	ptr->next = NULL;
+	ptr->prev = NULL;
+	head = ptr;
+	}
+	else
+	{
+	temp = head;
+	while(temp->next!=NULL)
+	{
+	temp = temp->next;
+	}
+	temp->next = ptr;
+	ptr ->prev=temp;
+	ptr->next = NULL;
+	}
+	
+	}
+	printf("\nnode inserted\n");
+	}
+	void insertion_specified()
+	{
+	struct node *ptr,*temp;
+	int item,loc,i;
+	ptr = (struct node *)malloc(sizeof(struct node));
+	if(ptr == NULL)
+	{
+	printf("\n OVERFLOW");
+	}
+	else
+	{
+	temp=head;
+	printf("Enter the location");
+	scanf("%d",&loc);
+	for(i=0;i<loc;i++)
+	{
+	temp = temp->next;
+	if(temp == NULL)
+	{
+	printf("\n There are less than %d elements", loc);
+	return;
+	}
+	}
+	printf("Enter value");
+	scanf("%d",&item);
+	ptr->data = item;
+	ptr->next = temp->next;
+	ptr -> prev = temp;
+	temp->next = ptr;
+	temp->next->prev=ptr;
+	printf("\nnode inserted\n");
+	}
+	}
+	void deletion_beginning()
+	{
+	struct node *ptr;
+	if(head == NULL)
+	{
+	printf("\n UNDERFLOW");
+	}
+	else if(head->next == NULL)
+	{
+	head = NULL;
+	free(head);
+	printf("\nnode deleted\n");
+	}
+	else
+	{
+	ptr = head;
+	head = head -> next;
+	head -> prev = NULL;
+	free(ptr);
+	printf("\nnode deleted\n");
+	}
+	
+	}
+	void deletion_last()
+	{
+	struct node *ptr;
+	if(head == NULL)
+	{
+	printf("\n UNDERFLOW");
+	}
+	else if(head->next == NULL)
+	{
+	head = NULL;
+	free(head);
+	printf("\nnode deleted\n");
+	}
+	else
+	{
+	ptr = head;
+	if(ptr->next != NULL)
+	{
+	ptr = ptr -> next;
+	}
+	ptr -> prev -> next = NULL;
+	free(ptr);
+	printf("\nnode deleted\n");
+	}
+	}
+	void deletion_specified()
+	{
+	struct node *ptr, *temp;
+	int val;
+	printf("\n Enter the data after which the node is to be deleted : ");
+	scanf("%d", &val);
+	ptr = head;
+	while(ptr -> data != val)
+	ptr = ptr -> next;
+	if(ptr -> next == NULL)
+	{
+	printf("\nCan't delete\n");
+	}
+	else if(ptr -> next -> next == NULL)
+	{
+	ptr ->next = NULL;
+	}
+	else
+	{
+	temp = ptr -> next;
+	ptr -> next = temp -> next;
+	temp -> next -> prev = ptr;
+	free(temp);
+	printf("\nnode deleted\n");
+	}
+	}
+	void display()
+	{
+	struct node *ptr;
+	printf("\n printing values...\n");
+	ptr = head;
+	while(ptr != NULL)
+	{
+	printf("%d\n",ptr->data);
+	ptr=ptr->next;
+	}
+	}
+	void search()
+	{
+	struct node *ptr;
+	int item,i=0,flag;
+	ptr = head;
+	if(ptr == NULL)
+	{
+	printf("\nEmpty List\n");
+	}
+	else
+	{
+	printf("\nEnter item which you want to search?\n");
+	scanf("%d",&item);
+	while (ptr!=NULL)
+	{
+	if(ptr->data == item)
+	{
+	printf("\nitem found at location %d ",i+1);
+	flag=0;
+	break;
+	}
+	else
+	{
+	flag=1;
+	}
+	i++;
+	ptr = ptr -> next;
+	}
+	if(flag==1)
+	{
+	printf("\nItem not found\n");
+	}
+	}
+	
+	}
+	
+16.min and max divide and conquer
+	#include <iostream>
+using namespace std;
+void MinMax(int arr[], int low, int high, int &min, int &max)
+{
+if (low == high)
+{
+if (max < arr[low]) {           // comparison 1
+max = arr[low];
+}
+
+if (min > arr[high]) {          // comparison 2
+min = arr[high];
+}
+return;
+}
+if (high - low == 1)
+{
+if (arr[low] < arr[high])
+{
+if (min > arr[low])
+{
+min = arr[low];
+}
+if (max < arr[high])
+{
+max = arr[high];
+}
+}
+else
+{
+if (min > arr[high])
+{
+min = arr[high];
+}
+if (max < arr[low])
+{
+max = arr[low];
+}
+}
+return;
+}
+int mid = (low + high) / 2;
+MinMax(arr, low, mid, min, max);
+MinMax(arr, mid + 1, high, min, max);
+}
+int main()
+{
+int i, n, arr[50];
+cout<<"Enter the number of elements : ";
+cin>>n;
+for( i = 0; i < n; i++ )
+{
+cout<<"Enter the element : ";
+cin>>arr[i];
+}
+int max = arr[0], min = arr[0];
+MinMax(arr, 0, n - 1, min, max);
+cout<<"The minimum array element is "<<min<<endl;
+cout<<"The maximum array element is "<<max;
+}
+
+output:![image](https://user-images.githubusercontent.com/98145574/165249249-45be96ee-8872-4843-8ab3-82e3bc344b7b.png)
+
+
+	
+
 
  https://www.iare.ac.in/sites/default/files/DAA%20%20Notes%20by%20Dr.%20L.%20V.%20Narasimha%20Prasad_0.pdf
 
