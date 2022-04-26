@@ -1381,7 +1381,7 @@ int main(){<br>
 }<br>
 	![image](https://user-images.githubusercontent.com/98145574/163942802-c64c81c2-ca49-4112-ab36-d46cea028473.png)<br>
 
-12.krustal.
+**12.write a program to find minimum cost spanning tree using kruskal method.**
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair<int, int> iPair;
