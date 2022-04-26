@@ -1492,47 +1492,359 @@ int main()<br>
 
 13.
 	#include<iostream>
+#include<cstdio>
+#include<cstdlib>
 using namespace std;
-struct node {
-   int data;
-   struct node *left;
-   struct node *right;
+
+struct node
+{
+    int value;
+    struct node* next;
+    struct node* prev;
 };
-struct node *createNode(int val) {
-   struct node *temp = (struct node *)malloc(sizeof(struct node));
-   temp->data = val;
-   temp->left = temp->right = NULL;
-   return temp;
+struct node* head;
+struct node* tail;
+
+void init()
+{
+    head=NULL;
+    tail=NULL;
 }
-void inorder(struct node *root) {
-   if (root != NULL) {
-      inorder(root->left);
-      cout<<root->data<<" ";
-      inorder(root->right);
-   }
+
+void insertFirst(int element)
+{
+    struct node* newItem;
+    newItem=new node;
+    if(head==NULL)
+    {
+        head=newItem;
+        newItem->prev=NULL;
+        newItem->value=element;
+        newItem->next=NULL;
+        tail=newItem;
+    }
+    else
+    {
+        newItem->next=head;
+        newItem->value=element;
+        newItem->prev=NULL;
+        head->prev=newItem;
+        head=newItem;
+    }
 }
-struct node* insertNode(struct node* node, int val) {
-   if (node == NULL) return createNode(val);
-   if (val < node->data)
-   node->left = insertNode(node->left, val);
-   else if (val > node->data)
-   node->right = insertNode(node->right, val);
-   return node;
+
+void insertLast(int element)
+{
+    struct node* newItem;
+    newItem=new node;
+    newItem->value=element;
+    if(head==NULL)
+    {
+        head=newItem;
+        newItem->prev=NULL;
+        newItem->next=NULL;
+        tail=newItem;
+    }
+    else
+    {
+        newItem->prev=tail;
+        tail->next=newItem;
+        newItem->next=NULL;
+        tail=newItem;
+    }
 }
-int main() {
-   struct node *root = NULL;
-   root = insertNode(root, 7);
-   insertNode(root, 90);
-   insertNode(root, 100);
-   insertNode(root, 10);
-   insertNode(root, 20);
-   insertNode(root, 18);
-   insertNode(root, 200);
-   insertNode(root, 150);
-   cout<<"In-Order traversal of the Binary Search Tree is: ";
-   inorder(root);
-   return 0;
+
+void insertAfter(int old, int element)
+{
+    struct node* newItem;
+    newItem=new node;
+    struct node* temp;
+    temp=head;
+    if(head==NULL)
+    {
+        cout<<"could not insert"<<endl;
+        return;
+    }
+    if(head==tail)
+    {
+        if(head->value!=old)
+        {
+            cout<<"could not insert"<<endl;
+            return;
+        }
+        newItem->value=element;
+        head->next=newItem;
+        newItem->next=NULL;
+        head->prev=NULL;
+        newItem->prev=head;
+        tail=newItem;
+        return;
+    }
+    if(tail->value==element)
+    {
+        newItem->next=NULL;
+        newItem->prev=tail;
+        tail->next=newItem;
+        tail=newItem;
+        return;
+    }
+    while(temp->value!=old)
+    {
+        temp=temp->next;
+        if(temp==NULL)
+        {
+            cout<<"Could not insert"<<endl;
+            cout<<"element not found"<<endl;
+            return;
+        }
+    }
+
+    newItem->next=temp->next;
+    newItem->prev=temp;
+    newItem->value=element;
+    temp->next->prev=newItem;
+    temp->next=newItem;
 }
+
+void deleteFirst()
+{
+    if(head==NULL)
+    {
+        return;
+    }
+    if(head==tail)
+    {
+        struct node* cur;
+        cur=head;
+        head=NULL;
+        tail=NULL;
+        delete cur;
+        return;
+    }
+    else
+    {
+        struct node* cur;
+        cur=head;
+        head=head->next;
+        head->prev=NULL;
+        delete cur;
+    }
+}
+
+void deleteLast()
+{
+    if(head==NULL) return;
+    if(head==tail)
+    {
+        struct node* cur;
+        cur=head;
+        head=NULL;
+        tail=NULL;
+        delete cur;
+        return;
+    }
+    else
+    {
+        struct node* cur;
+        cur=tail;
+        tail=tail->prev;
+        tail->next=NULL;
+        delete cur;
+    }
+}
+void deleteItem(int element)
+{
+    struct node* temp;
+    temp=head;
+    if(head==tail)
+    {
+        if(head->value!=element)
+        {
+            cout<<"could not delete"<<endl;
+            return;
+        }
+        head=NULL;
+        tail=NULL;
+        delete temp;
+        return;
+    }
+    if(head->value==element)
+    {
+        head=head->next;
+        head->prev=NULL;
+        delete temp;
+        return;
+    }
+    else if(tail->value==element)
+    {
+        temp=tail;
+        tail=tail->prev;
+        tail->next=NULL;
+        delete temp;
+        return;
+    }
+    while(temp->value!=element)
+    {
+        temp=temp->next;
+        if(temp==NULL)
+        {
+            cout<<"element not found"<<endl;
+            return;
+        }
+    }
+    temp->next->prev=temp->prev;
+    temp->prev->next=temp->next;
+    delete temp;
+}
+
+struct node* searchItem(int element)
+{
+    struct node* temp;
+    temp=head;
+    while(temp!=NULL)
+    {
+        if(temp->value==element)
+        {
+            return temp;
+            break;
+        }
+        temp=temp->next;
+    }
+    return NULL;
+}
+
+void printList()
+{
+    struct node* temp;
+    temp=head;
+    while(temp!=NULL)
+    {
+        cout<<temp->value<<"->";
+        temp=temp->next;
+    }
+    puts("");
+}int dltfrst()
+{
+    if(head==NULL)
+    {
+        return 0;
+    }
+    int prev;
+    prev=head->value;
+    if(head==tail)
+    {
+        struct node* cur;
+        cur=head;
+        head=NULL;
+        tail=NULL;
+        delete cur;
+        return prev;
+    }
+    else
+    {
+        struct node* cur;
+        cur=head;
+        head=head->next;
+        head->prev=NULL;
+        delete cur;
+        return prev;
+    }
+}
+int dltlast()
+{
+    if(head==NULL) return 0;
+    int prev;
+    prev=tail->value;
+    if(head==tail)
+    {
+        struct node* cur;
+        cur=head;
+        head=NULL;
+        tail=NULL;
+        delete cur;
+        return prev;
+    }
+    else
+    {
+        struct node* cur;
+        cur=tail;
+        tail=tail->prev;
+        tail->next=NULL;
+        delete cur;
+        return prev;
+    }
+}
+int main()
+{
+    init();
+
+    int choice;
+    while(1)
+    {
+        cout<<"Enter Your choice\n";
+		cout<<" 1.InsertFirst\n 2.InsertLast\n 3.InsertAfter\n 4.DeleteFirst\n 5.DeleteLast\n";
+        cout<<" 6.SearchItem\n 7.PrintList\n 8.EXIT \n";
+    
+        cin>>choice;
+        if(choice==1)
+        {
+            int element;
+            cout<<"Enter element_";
+            cin>>element;
+            insertFirst(element);
+            printList();
+        }
+        else if(choice==2)
+        {
+            int element;
+            cout<<"Enter element_";
+            cin>>element;
+            insertLast(element);
+            printList();
+        }
+        else if(choice==3)
+        {
+            int old,newitem;
+            cout<<"Enter Old Item_";
+            cin>>old;
+            cout<<"Enter new Item_";
+            cin>>newitem;
+            insertAfter(old,newitem);
+            printList();
+        }
+        else if(choice==4)
+        {
+            deleteFirst();
+            printList();
+        }
+        else if(choice==5)
+        {
+            deleteLast();
+            printList();
+        }
+        else if(choice==6)
+        {
+            int item;
+            cout<<"Enter Item to Search_";
+            cin>>item;
+            struct node* ans=searchItem(item);
+            if(ans!=NULL) 
+			cout<<"FOUND "<<ans->value<<endl;
+            else cout<<"NOT FOUND"<<endl;
+        }
+        else if(choice==7)
+        {
+            printList();
+        }
+        else if(choice==8)
+        {
+            break;
+        }
+    
+    }
+return 0;
+}
+
 output:
 ![image](https://user-images.githubusercontent.com/98145574/165041371-adec27ab-c4f3-4837-a8e9-1477b8066e3c.png)
 
