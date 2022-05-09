@@ -2246,144 +2246,142 @@ cout<<"The maximum array element is "<<max;
 output:![image](https://user-images.githubusercontent.com/98145574/165249249-45be96ee-8872-4843-8ab3-82e3bc344b7b.png)
 	
 17.prims
-#include <bits/stdc++.h>
-using namespace std;
-#define V 5
-int minKey(int key[], bool mstSet[])
-{
-int min = INT_MAX, min_index;
-for (int v = 0; v < V; v++)
-if (mstSet[v] == false && key[v] < min)
-min = key[v], min_index = v;
-return min_index;
-}
-void printMST(int parent[], int graph[V][V])
-{
-cout<<"Edge \tWeight\n";
-for (int i = 1; i < V; i++)
-cout<<parent[i]<<" - "<<i<<" \t"<<graph[i][parent[i]]<<" \n";
-}
+#include <bits/stdc++.h><br>
+using namespace std;<br>
+#define V 5<br>
+int minKey(int key[], bool mstSet[])<br>
+{<br>
+int min = INT_MAX, min_index;<br>
+for (int v = 0; v < V; v++)<br>
+if (mstSet[v] == false && key[v] < min)<br>
+min = key[v], min_index = v;<br>
+return min_index;<br>
+}<br>
+void printMST(int parent[], int graph[V][V])<br>
+{<br>
+cout<<"Edge \tWeight\n";<br>
+for (int i = 1; i < V; i++)<br>
+cout<<parent[i]<<" - "<<i<<" \t"<<graph[i][parent[i]]<<" \n";<br>
+}<br>
 
-void primMST(int graph[V][V])
-{
-int parent[V];
-int key[V];
-bool mstSet[V];
-for (int i = 0; i < V; i++)
-key[i] = INT_MAX, mstSet[i] = false;
-key[0] = 0;
-parent[0] = -1; // First node is always root of MST
-for (int count = 0; count < V - 1; count++)
-{
-int u = minKey(key, mstSet);
-mstSet[u] = true;
-for (int v = 0; v < V; v++)
-if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
-parent[v] = u, key[v] = graph[u][v];
-}
-printMST(parent, graph);
-}
-int main()
-{
-int graph[V][V] = { { 0, 2, 0, 6, 0 },
-{ 2, 0, 3, 8, 5 },
-{ 0, 3, 0, 0, 7 },
-{ 6, 8, 0, 0, 9 },
-{ 0, 5, 7, 9, 0 } };
-primMST(graph);
-return 0;
-}
+void primMST(int graph[V][V])<br>
+{<br>
+int parent[V];<br>
+int key[V];<br>
+bool mstSet[V];<br>
+for (int i = 0; i < V; i++)<br>
+key[i] = INT_MAX, mstSet[i] = false;<br>
+key[0] = 0;<br>
+parent[0] = -1; // First node is always root of MST<br>
+for (int count = 0; count < V - 1; count++)<br>
+{<br>
+int u = minKey(key, mstSet);<br>
+mstSet[u] = true;<br>
+for (int v = 0; v < V; v++)<br>
+if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])<br>
+parent[v] = u, key[v] = graph[u][v];<br>
+}<br>
+printMST(parent, graph);<br>
+}<br>
+int main()<br>
+{<br>
+int graph[V][V] = { { 0, 2, 0, 6, 0 },<br>
+{ 2, 0, 3, 8, 5 },<br>
+{ 0, 3, 0, 0, 7 },<br>
+{ 6, 8, 0, 0, 9 },<br>
+{ 0, 5, 7, 9, 0 } };<br>
+primMST(graph);<br>
+return 0;<br>
+}<br>
 
-output:![image](https://user-images.githubusercontent.com/98145574/167389633-22fa0c73-9c3d-4d31-bd8c-38d56bb35bda.png)
+output:![image](https://user-images.githubusercontent.com/98145574/167389633-22fa0c73-9c3d-4d31-bd8c-38d56bb35bda.png)<br>
 							      
 18.conncted components
 				
-#include <iostream>
-#include <list>
-using namespace std;
+#include <iostream><br>
+#include <list><br>
+using namespace std;<br>
  
-// Graph class represents a undirected graph
-// using adjacency list representation
-class Graph {
-    int V; // No. of vertices
+class Graph {<br>
+    int V; // No. of vertices<br>
  
-    // Pointer to an array containing adjacency lists
-    list<int>* adj;
+    // Pointer to an array containing adjacency lists<br>
+    list<int>* adj;<br>
  
-    // A function used by DFS
-    void DFSUtil(int v, bool visited[]);
+    // A function used by DFS<br>
+    void DFSUtil(int v, bool visited[]);<br>
  
-public:
-    Graph(int V); // Constructor
-    ~Graph();
-    void addEdge(int v, int w);
-    void connectedComponents();
-};
+public:<br>
+    Graph(int V); // Constructor<br>
+    ~Graph();<br>
+    void addEdge(int v, int w);<br>
+    void connectedComponents();<br>
+};<br>
  
-// Method to print connected components in an
-// undirected graph
-void Graph::connectedComponents()
-{
-    // Mark all the vertices as not visited
-    bool* visited = new bool[V];
-    for (int v = 0; v < V; v++)
-        visited[v] = false;
+// Method to print connected components in an<br>
+// undirected graph<br>
+void Graph::connectedComponents()<br>
+{<br>
+    // Mark all the vertices as not visited<br>
+    bool* visited = new bool[V];<br>
+    for (int v = 0; v < V; v++)<br>
+        visited[v] = false;<br>
  
-    for (int v = 0; v < V; v++) {
-        if (visited[v] == false) {
-            // print all reachable vertices
-            // from v
-            DFSUtil(v, visited);
+    for (int v = 0; v < V; v++) {<br>
+        if (visited[v] == false) {<br>
+            // print all reachable vertices<br>
+            // from v<br>
+            DFSUtil(v, visited);<br>
  
-            cout << "\n";
-        }
-    }
-    delete[] visited;
-}
+            cout << "\n";<br>
+        }<br>
+    }<br>
+    delete[] visited;<br>
+}<br>
  
-void Graph::DFSUtil(int v, bool visited[])
-{
-    // Mark the current node as visited and print it
-    visited[v] = true;
-    cout << v << " ";
+void Graph::DFSUtil(int v, bool visited[])<br>
+{<br>
+    // Mark the current node as visited and print it<br>
+    visited[v] = true;<br>
+    cout << v << " ";<br>
  
-    // Recur for all the vertices
-    // adjacent to this vertex
-    list<int>::iterator i;
-    for (i = adj[v].begin(); i != adj[v].end(); ++i)
-        if (!visited[*i])
-            DFSUtil(*i, visited);
-}
+    // Recur for all the vertices<br>
+    // adjacent to this vertex<br>
+    list<int>::iterator i;<br>
+    for (i = adj[v].begin(); i != adj[v].end(); ++i)<br>
+        if (!visited[*i])<br>
+            DFSUtil(*i, visited);<br>
+}<br>
  
-Graph::Graph(int V)
-{
-    this->V = V;
-    adj = new list<int>[V];
-}
+Graph::Graph(int V)<br>
+{<br>
+    this->V = V;<br>
+    adj = new list<int>[V];<br>
+}<br>
  
-Graph::~Graph() { delete[] adj; }
+Graph::~Graph() { delete[] adj; }<br>
  
-// method to add an undirected edge
-void Graph::addEdge(int v, int w)
-{
-    adj[v].push_back(w);
-    adj[w].push_back(v);
-}
+// method to add an undirected edge<br>
+void Graph::addEdge(int v, int w)<br>
+{<br>
+    adj[v].push_back(w);<br>
+    adj[w].push_back(v);<br>
+}<br>
  
-// Driver code
-int main()
-{
-    // Create a graph given in the above diagram
-    Graph g(5); // 5 vertices numbered from 0 to 4
-    g.addEdge(1, 0);
-    g.addEdge(2, 3);
-    g.addEdge(3, 4);
+// Driver code<br>
+int main()<br>
+{<br>
+    // Create a graph given in the above diagram<br>
+    Graph g(5); // 5 vertices numbered from 0 to 4<br>
+    g.addEdge(1, 0);<br>
+    g.addEdge(2, 3);<br>
+    g.addEdge(3, 4);<br>
  
-    cout << "Following are connected components \n";
-    g.connectedComponents();
+    cout << "Following are connected components \n";<br>
+    g.connectedComponents();<br>
  
-    return 0;
-}
+    return 0;<br>
+}<br>
 output:![image](https://user-images.githubusercontent.com/98145574/167389954-fa858b6d-f2ab-4386-883d-15b724849726.png)
 
 
